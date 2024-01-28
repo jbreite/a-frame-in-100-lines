@@ -2,7 +2,7 @@ import { getFrameMetadata } from '@coinbase/onchainkit';
 import type { Metadata } from 'next';
 
 const frameMetadata = getFrameMetadata({
-  buttons: ['Next image'],
+  buttons: ['Next image', 'Previous image'],
   image: 'https://zizzamia.xyz/park-1.png',
   post_url: 'https://zizzamia.xyz/api/frame',
 });
