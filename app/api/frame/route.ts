@@ -14,7 +14,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="iceberg-option-2.png" />
     <meta property="fc:frame:button:1" content="${accountAddress}" />
-    <meta property="fc:frame:post_url" content="https://a-frame-in-100-lines-eaj8rw720-jbreite.vercel.app/api/frame" />
+    <meta property="fc:frame:post_url" content="https://a-frame-in-100-lines-jbreite.vercel.app/api/frame" />
   </head></html>`);
 }
 
