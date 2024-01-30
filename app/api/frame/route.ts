@@ -14,7 +14,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="park-1.png" />
     <meta property="fc:frame:button:1" content="${accountAddress}" />
-    <meta property="fc:frame:button:2" content="No" />
     <meta property="fc:frame:post_url" content="https://zizzamia.xyz/api/frame" />
   </head></html>`);
 }
