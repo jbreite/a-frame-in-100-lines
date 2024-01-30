@@ -3,8 +3,8 @@ import type { Metadata } from 'next';
 
 const frameMetadata = getFrameMetadata({
   buttons: ['Prev', 'Next'],
-  image: '/iceberg-option-1.png',
-  post_url: 'https://zizzamia.xyz/api/frame',
+  image: 'https://a-frame-in-100-lines-eaj8rw720-jbreite.vercel.app/iceberg-option-1',
+  post_url: 'https://a-frame-in-100-lines-eaj8rw720-jbreite.vercel.app/api/frame',
 });
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'zizzamia.xyz',
     description: 'LFG',
-    images: ['/iceberg-option-1.png'],
+    images: ['https://a-frame-in-100-lines-eaj8rw720-jbreite.vercel.app/iceberg-option-1'],
   },
   other: {
     ...frameMetadata,
