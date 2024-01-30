@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 const frameMetadata = getFrameMetadata({
   buttons: ['Prev', 'Next'],
-  image: 'https://zizzamia.xyz/park-1.png',
+  image: '/iceberg-option-1.png',
   post_url: 'https://zizzamia.xyz/api/frame',
 });
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'zizzamia.xyz',
     description: 'LFG',
-    images: ['https://zizzamia.xyz/park-1.png'],
+    images: ['/iceberg-option-1.png'],
   },
   other: {
     ...frameMetadata,
