@@ -24,6 +24,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${optionImageUrl}" />
+    <meta property="fc:frame:button:1" content="Prev" />
+    <meta property="fc:frame:button:2" content="Next" />
     <meta property="fc:frame:post_url" content="${postUrl}" />
   </head></html>`);
   }    
@@ -31,6 +33,8 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${optionImageUrl}" />
+    <meta property="fc:frame:button:1" content="Next" />
+    <meta property="fc:frame:button:2" content="Prev" />
     <meta property="fc:frame:post_url" content="${postUrl}" />
   </head></html>`);
 }
