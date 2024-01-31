@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
-      <h1>Testing Frames...</h1>
+      <h1>Iceberg.Frame </h1>
     </>
   );
 }
