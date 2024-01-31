@@ -77,7 +77,6 @@ export default async function handler(req: NextRequest): Promise<Response> {
   return getResponse(req);
 }
 
-// export const runtime = 'experimental-edge';
 export const dynamic = 'force-dynamic';
 
 
