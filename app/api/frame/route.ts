@@ -11,7 +11,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
 
   counter = counter >= 4 ? 1 : counter + 1;
 
-
   let accountAddress: string | undefined;
   let messageBytes: string | undefined;
   try {
@@ -25,29 +24,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${optionImageUrl}" />
-    <meta property="fc:frame:button:1" content="Next" />
     <meta property="fc:frame:post_url" content="${postUrl}" />
   </head></html>`);
-  }
-  console.log('Message is valid');
-
-  if (!accountAddress) {
-    return new NextResponse(`<!DOCTYPE html><html><head>
-    <meta property="fc:frame" content="vNext" />
-    <meta property="fc:frame:image" content="${optionImageUrl}" />
-    <meta property="fc:frame:button:1" content="Next" />
-    <meta property="fc:frame:post_url" content="${postUrl}" />
-  </head></html>`);
-  }
-
-  console.log('Account address is', accountAddress);
-    
-
+  }    
 
   return new NextResponse(`<!DOCTYPE html><html><head>
     <meta property="fc:frame" content="vNext" />
     <meta property="fc:frame:image" content="${optionImageUrl}" />
-    <meta property="fc:frame:button:1" content="Next" />
     <meta property="fc:frame:post_url" content="${postUrl}" />
   </head></html>`);
 }
