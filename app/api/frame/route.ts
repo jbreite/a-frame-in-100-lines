@@ -73,14 +73,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   </head></html>`);
 }
 
-// Export the function as a Vercel Edge Function
-export const config = {
-  runtime: 'experimental-edge',
-};
-
 export default async function handler(req: NextRequest): Promise<Response> {
   return getResponse(req);
 }
+
+export const runtime = 'experimental-edge';
 
 // let counter = 1; // Initialize the counter
 
