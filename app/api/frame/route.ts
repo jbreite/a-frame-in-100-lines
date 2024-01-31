@@ -9,24 +9,24 @@ const POST_URL = 'https://a-frame-in-100-lines-jbreite.vercel.app/api/frame';
 const MAX_OPTION = 4;
 const KEY = 'imageOption'; // Key used in the store to track the current image option
 
-interface FrameData {
-  fid: number;
-  url: string;
-  messageHash: string | undefined;
-  timestamp: number;
-  network: number;
-  buttonIndex: number;
-  castId: {
-    fid: number;
-    hash: string; // or string, if you're not working directly with Node.js Buffer objects
-  };
-}
+// interface FrameData {
+//   fid: number;
+//   url: string;
+//   messageHash: string | undefined;
+//   timestamp: number;
+//   network: number;
+//   buttonIndex: number;
+//   castId: {
+//     fid: number;
+//     hash: string; // or string, if you're not working directly with Node.js Buffer objects
+//   };
+// }
 
-// Define the structure of the response from getFrameMessage
-interface FrameValidationResponse {
-  isValid: boolean;
-  message: FrameData;
-}
+// // Define the structure of the response from getFrameMessage
+// interface FrameValidationResponse {
+//   isValid: boolean;
+//   message: FrameData;
+// }
 
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
@@ -35,7 +35,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   try {
     const body = await req.json();
     // Cast the result of getFrameMessage directly to FrameValidationResponse
-    const result = await getFrameMessage(body) as unknown as FrameValidationResponse;
+    const result = await getFrameMessage(body);
     
     if (!result.isValid) {
       throw new Error('Message is not valid');
