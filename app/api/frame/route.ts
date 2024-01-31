@@ -16,13 +16,10 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   let messageBytes: string | undefined;
   try {
     const body = await req.json();
-    const validatedMessage = await getFrameMessage(body)
-    console.log('validatedMessage', validatedMessage, {
-      NEYNAR_API_KEY: "NEYNAR_API_DOCS",
-    });
-    accountAddress = await getFrameAccountAddress(body, {
-      NEYNAR_API_KEY: "NEYNAR_API_DOCS",
-    });
+    const validatedMessage = await getFrameMessage(body);
+
+    console.log('Validated message is', validatedMessage);
+    
   } catch (err) {
     console.error(err);
     return new NextResponse(`<!DOCTYPE html><html><head>
