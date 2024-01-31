@@ -18,7 +18,7 @@ interface FrameData {
   buttonIndex: number;
   castId: {
     fid: number;
-    hash: Buffer; // or string, if you're not working directly with Node.js Buffer objects
+    hash: string; // or string, if you're not working directly with Node.js Buffer objects
   };
 }
 
