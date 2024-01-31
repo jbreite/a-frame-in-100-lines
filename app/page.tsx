@@ -15,11 +15,11 @@ const frameMetadata = getFrameMetadata({
 });
 
 export const metadata: Metadata = {
-  title: 'zizzamia.xyz',
-  description: 'LFG',
+  title: 'icberg.frame',
+  description: '🧊🧊🧊',
   openGraph: {
-    title: 'zizzamia.xyz',
-    description: 'LFG',
+    title: 'iceberg.frame',
+    description: '🧊🧊🧊',
     images: ['https://a-frame-in-100-lines-jbreite.vercel.app/iceberg-option-1.png'],
   },
   other: {
