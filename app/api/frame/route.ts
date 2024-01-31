@@ -17,9 +17,11 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   try {
     const body = await req.json();
     const validatedMessage = await getFrameMessage(body)
-    console.log('validatedMessage', validatedMessage);
+    console.log('validatedMessage', validatedMessage, {
+      NEYNAR_API_KEY: "NEYNAR_API_DOCS",
+    });
     accountAddress = await getFrameAccountAddress(body, {
-      NEYNAR_API_KEY: process.env.NEYNAR_API_KEY,
+      NEYNAR_API_KEY: "NEYNAR_API_DOCS",
     });
   } catch (err) {
     console.error(err);
