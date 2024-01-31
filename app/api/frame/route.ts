@@ -77,7 +77,7 @@ export default async function handler(req: NextRequest): Promise<Response> {
   return getResponse(req);
 }
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 
 // let counter = 1; // Initialize the counter
