@@ -1,6 +1,5 @@
 import { FrameRequest, getFrameMessage } from '@coinbase/onchainkit';
 import { NextRequest, NextResponse } from 'next/server';
-import { kv } from '@vercel/kv';
 
 const BASE_IMAGE_URL = 'https://a-frame-in-100-lines-jbreite.vercel.app/iceberg-option-';
 const POST_URL = 'https://a-frame-in-100-lines-jbreite.vercel.app/api/frame';
@@ -10,17 +9,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   let optionImageUrl: string = '';
   const body: FrameRequest = await req.json();
   const { isValid, message } = await getFrameMessage(body);
+  let currentOption;
 
   if (isValid) {
     // Use message.fid as the key directly
     const fidKey = `${message.fid}`;
-    let currentOption = 1; // Default option if not found in the store
-
-    // Try to get the current option from the store
-    const storedOption = await kv.get<string>(fidKey);
-    if (storedOption) {
-      currentOption = parseInt(storedOption, 10);
-    }
+    const currentOptionParam = req.nextUrl.searchParams.get('currentOption');
+    let currentOption = currentOptionParam ? parseInt(currentOptionParam, 10) : 1; // Default to 1 if not found
 
     // Adjust the current option based on the buttonIndex
     if (message.buttonIndex === 1) { // "Prev" button
@@ -28,9 +23,6 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     } else if (message.buttonIndex === 2) { // "Next" button
       currentOption = currentOption < MAX_OPTION ? currentOption + 1 : 1;
     }
-
-    // Update the store with the new option
-    await kv.set(fidKey, currentOption.toString());
 
     optionImageUrl = `${BASE_IMAGE_URL}${currentOption}.png`;
   } else {
@@ -43,7 +35,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     <meta property="fc:frame:image" content="${optionImageUrl}" />
     <meta property="fc:frame:button:1" content="Prev" />
     <meta property="fc:frame:button:2" content="Next" />
-    <meta property="fc:frame:post_url" content="${POST_URL}" />
+    <meta property="fc:frame:post_url" content="${POST_URL}?currentOption=${currentOption}" />
   </head></html>`);
 }
 
