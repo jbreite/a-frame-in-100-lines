@@ -15,7 +15,7 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
     console.log("req", req)
     const currentOptionParam = req.nextUrl.searchParams.get('currentOption');
     console.log('currentOptionParam', currentOptionParam)
-    let currentOption = currentOptionParam ? parseInt(currentOptionParam, 10) : 1; // Default to 1 if not found
+    currentOption = currentOptionParam ? parseInt(currentOptionParam, 10) : 1; // Default to 1 if not found
     
     console.log('currentOption', currentOption);
 
