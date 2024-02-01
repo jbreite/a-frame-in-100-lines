@@ -12,13 +12,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
   let currentOption;
 
   if (isValid) {
-    // Use message.fid as the key directly
-    const fidKey = `${message.fid}`;
+    console.log("req", req)
     const currentOptionParam = req.nextUrl.searchParams.get('currentOption');
+    console.log('currentOptionParam', currentOptionParam)
     let currentOption = currentOptionParam ? parseInt(currentOptionParam, 10) : 1; // Default to 1 if not found
     
     console.log('currentOption', currentOption);
-    
+
     // Adjust the current option based on the buttonIndex
     if (message.buttonIndex === 1) { // "Prev" button
       currentOption = currentOption > 1 ? currentOption - 1 : MAX_OPTION;
